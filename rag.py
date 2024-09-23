@@ -10,8 +10,8 @@ from prompts import sample_data_generation_prompt, query_prompt
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 # df = pd.read_parquet("bahrain-ver.parquet")
-# df = pd.read_parquet("index.parquet")
-df = pd.read_parquet("data/embedding/Formula 1 Race - 2021 British Grand Prix-ALO.parquet")
+df = pd.read_parquet("index.parquet")
+# df = pd.read_parquet("data/embedding/Formula 1 Race - 2021 British Grand Prix-ALO.parquet")
 df.embedding = df.embedding.map(np.array)
 
 embeddings = np.array(df.embedding.tolist())
@@ -19,7 +19,7 @@ embeddings = np.array(df.embedding.tolist())
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 while True:
-    query = input("State your query about the 2021 British Grand Prix:")
+    query = input("State your query about the 2021 British Grand Prix: ")
     # query = "Were there any safety cars?"
 
     query_embedded = np.array(
