@@ -11,3 +11,20 @@ Relevant Modules:
 * rag.py: Based on the provided query, create samples that might be relevant for the query and extracts documents that could be useful to provide an answer.
 * prompts.py: Prompts to provide specification for the task.
 * utils.py: General utility code.
+
+How to run:
+Transcribe an audio file:
+```bash
+python -m prep.transcribe --audio_path temp.wav --save_path temp.csv
+```
+
+Embed an audio file:
+```bash
+python -m prep.embed --csv_path temp.csv --save_path temp.parquet
+```
+
+Run RAG CLI:
+```bash
+python rag.py
+```
+
