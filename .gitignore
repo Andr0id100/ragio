@@ -1,4 +1,10 @@
+.DS_STORE
 data/video/*
 data/audio/*
-node_modules/
 __pycache__
+*.parquet
+!index.parquet
+.ipynb_checkpoints
+*.wav
+*.mp4
+*.csv
