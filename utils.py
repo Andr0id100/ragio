@@ -1,7 +1,8 @@
 def seconds_to_hours_minutes(seconds):
-        hours, remainder = divmod(seconds, 3600)
-        minutes, _ = divmod(remainder, 60)
-        return f"{int(hours)}:{int(minutes)}"
+    hours, remainder = divmod(seconds, 3600)
+    minutes, _ = divmod(remainder, 60)
+    return f"{int(hours)}:{int(minutes)}"
+
 
 def create_formatted_transcripts(df):
     transcripts = ""

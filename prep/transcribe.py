@@ -10,6 +10,7 @@ import click
 
 from prompts import asr_prompt
 
+
 @click.command()
 @click.option("--audio_path", required=True)
 @click.option("--save_path", required=True)
@@ -35,7 +36,6 @@ def main(audio_path: str, save_path: str, whisper_model: str, noise_reduce: bool
         audio, vad_model, min_silence_duration_ms=1000
     )
 
-    
     data = []
 
     for speech_segment in tqdm(speech_timestamps):
