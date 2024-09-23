@@ -19,8 +19,7 @@ embeddings = np.array(df.embedding.tolist())
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 while True:
-    query = input("State your query about the 2021 British Grand Prix: ")
-    # query = "Were there any safety cars?"
+    query = input("State your query about the 2021 British Grand Prix:\n")
 
     query_embedded = np.array(
         genai.embed_content(
@@ -46,9 +45,8 @@ while True:
     )
 
     similarities = (embeddings @ sentences_embedded.T).max(-1)
-    order = np.argsort(similarities)[::-1]
-
-    df_relevant = df.iloc[order[:50]]
+    similarities_mask = similarities > 0.7
+    df_relevant = df.iloc[similarities_mask]
     transcripts = create_formatted_transcripts(df_relevant)
 
     response = model.generate_content(

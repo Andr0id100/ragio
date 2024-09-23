@@ -9,7 +9,7 @@ def create_formatted_transcripts(df):
     for i in range(len(df)):
         transcripts += f"""
         <transcript>
-            <driver>{df.iloc[i].driver}</driver>
+            <driver>{df.iloc[i].name}</driver>
             <start_time>{seconds_to_hours_minutes(df.iloc[i].start)}</start_time>
             <end_time>{seconds_to_hours_minutes(df.iloc[i].end)}</end_time>
             <text>{df.iloc[i].text}</text>
