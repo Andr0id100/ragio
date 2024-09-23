@@ -1,0 +1,4 @@
+data/video/*
+data/audio/*
+node_modules/
+__pycache__
